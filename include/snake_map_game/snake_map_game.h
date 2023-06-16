@@ -15,6 +15,7 @@ protected:
 public:
     Snake_map_game(int srartx, int starty);
     void Snake_stage_init(std::vector<std::string> stage);
+    void Poison_create(int percentage);
 };
 
 #endif

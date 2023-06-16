@@ -1,4 +1,5 @@
 #include <vector>
+#include "../snake_map_game/snake_map_game.h"
 
 class SnakeGame{
 private:
@@ -8,6 +9,6 @@ public:
     SnakeGame();
     ~SnakeGame();
     
-    void selectMap(std::vector<std::string> stage);
-    void gameStart(int delay);
+    Snake_map_game selectMap(std::vector<std::string> stage);
+    void gameStart(Snake_map_game map, int delay = 10000);
 };

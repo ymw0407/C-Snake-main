@@ -6,7 +6,7 @@
 int main()
 {
     SnakeGame game = SnakeGame();
-    game.selectMap(stage1);
-    game.gameStart(100000);
+    Snake_map_game map = game.selectMap(stage1);
+    game.gameStart(map, 100000);
     return 0;
 }
