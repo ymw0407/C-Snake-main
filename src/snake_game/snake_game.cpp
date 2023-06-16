@@ -36,9 +36,9 @@ Snake_map_score SnakeGame::initScore(std::vector<std::string> scoreboard)
     return snake_score;
 }
 
-void SnakeGame::gameStart(Snake_map_game map, int tick)
+void SnakeGame::gameStart(Snake_map_game map, Snake_map_score score, int tick)
 {
     nodelay(stdscr, true);
     Snake_entity snake = Snake_entity(tick);
-    snake.loop_snake(map);
+    snake.loop_snake(map, score);
 }

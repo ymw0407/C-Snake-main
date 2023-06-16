@@ -9,6 +9,6 @@ int main()
     SnakeGame game = SnakeGame();
     Snake_map_game map = game.selectMap(stage2);
     Snake_map_score score = game.initScore(scoreBoard);
-    game.gameStart(map, 500000);
+    game.gameStart(map, score, 500000);
     return 0;
 }

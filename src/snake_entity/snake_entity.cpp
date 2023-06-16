@@ -1,4 +1,5 @@
 #include "../../include/snake_entity/snake_entity.h"
+#include "../../include/snake_map_scoreboard/snake_map_scoreboard.h"
 #include <ncurses.h>
 #include <vector>
 #include <unistd.h>
@@ -81,7 +82,16 @@ void Snake_entity::move_snake()
         break;
 
     case 'G': // growth
-        p++;
+        if (l >= 20)
+        {
+            mvaddch(y2, x2, ' ');
+            snake.pop_back();
+        }
+        else
+        {
+            p++;
+        }
+
         break;
 
     case '@': // poison
@@ -135,7 +145,7 @@ void Snake_entity::set_snake()
     }
 }
 
-void Snake_entity::loop_snake(Snake_map_game map)
+void Snake_entity::loop_snake(Snake_map_game map, Snake_map_score score)
 {
     while (dir != 'q')
     {
@@ -146,9 +156,10 @@ void Snake_entity::loop_snake(Snake_map_game map)
         map.Fast_create(3, 31);
         map.Slow_create(3, 61);
         move_snake();
-        
+
         sp = delay;
         msp = std::min(delay, msp);
+        score.Snake_score_reload(l, msp, sp, p, m, f, s);
         usleep(delay);
     }
 }
