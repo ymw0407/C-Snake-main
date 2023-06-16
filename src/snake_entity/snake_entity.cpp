@@ -14,7 +14,7 @@ std::pair<int, int> map_position::get_position()
 
 Snake_entity::Snake_entity(int delay) : delay(delay)
 {
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 3; i++)
     {
         snake.push_back(map_position(15, 30 + i * 2));
     }
