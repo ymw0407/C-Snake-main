@@ -1,6 +1,8 @@
 #include "../../include/snake_map_game/snake_map_game.h"
 #include "../snake_item/snake_poison.cpp"
 #include "../snake_item/snake_growth.cpp"
+#include "../snake_item/snake_slow.cpp"
+#include "../snake_item/snake_fast.cpp"
 #include <ncurses.h>
 #include <vector>
 
@@ -34,5 +36,17 @@ void Snake_map_game::Poison_create(int percentage, int r)
 void Snake_map_game::Growth_create(int percentage, int r)
 {
     Growth growth = Growth(percentage);
-    growth.create_item(starty, startx, stage_height, stage_width, r, percentage, '$');
+    growth.create_item(starty, startx, stage_height, stage_width, r, percentage, 'G');
+}
+
+void Snake_map_game::Slow_create(int percentage, int r)
+{
+    Slow slow = Slow(percentage);
+    slow.create_item(starty, startx, stage_height, stage_width, r, percentage, 'S');
+}
+
+void Snake_map_game::Fast_create(int percentage, int r)
+{
+    Fast fast = Fast(percentage);
+    fast.create_item(starty, startx, stage_height, stage_width, r, percentage, 'F');
 }

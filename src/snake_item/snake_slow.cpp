@@ -4,12 +4,12 @@
 #include <ctime>
 #include <ncurses.h>
 
-class Growth : public item
+class Slow : public item
 {
 protected:
     char item_char;
     int percentage;
 
 public:
-    Growth(int percentage = 3, char item_char = 'G') : item_char(item_char), percentage(percentage){};
+    Slow(int percentage = 10, char item_char = 'S') : item_char(item_char), percentage(percentage){};
 };

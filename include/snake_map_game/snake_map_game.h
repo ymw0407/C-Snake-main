@@ -17,6 +17,8 @@ public:
     void Snake_stage_init(std::vector<std::string> stage);
     void Poison_create(int percentage, int r);
     void Growth_create(int percentage, int r);
+    void Slow_create(int percentage, int r);
+    void Fast_create(int percentage, int r);
 };
 
 #endif

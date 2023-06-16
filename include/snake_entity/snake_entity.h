@@ -17,12 +17,13 @@ class Snake_entity
 private:
     std::vector<map_position> snake;
     char dir = 'l';
+    int delay;
     void set_snake();
     char snake_collision();
 public:
-    Snake_entity();
+    Snake_entity(int delay);
     void move_snake();
-    void loop_snake(int delay, Snake_map_game map);
+    void loop_snake(Snake_map_game map);
 };
 
 #endif

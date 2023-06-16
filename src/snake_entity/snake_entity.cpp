@@ -11,7 +11,7 @@ std::pair<int, int> map_position::get_position()
     return std::make_pair(x, y);
 }
 
-Snake_entity::Snake_entity()
+Snake_entity::Snake_entity(int delay) : delay(delay)
 {
     for (int i = 0; i < 4; i++)
     {
@@ -79,11 +79,11 @@ void Snake_entity::move_snake()
     case 'B':
         dir = 'q';
         break;
-    
-    case '$':
+
+    case 'G': // growth
         break;
-    
-    case '@':
+
+    case '@': // poison
         mvaddch(y2, x2, ' ');
         snake.pop_back();
         x2 = snake.back().get_position().second;
@@ -91,14 +91,27 @@ void Snake_entity::move_snake()
         snake.pop_back();
         mvaddch(y2, x2, ' ');
         break;
-    
+
+    case 'S': // slow
+        mvaddch(y2, x2, ' ');
+        snake.pop_back();
+        delay *= 1.5;
+        break;
+
+    case 'F': // fast
+        mvaddch(y2, x2, ' ');
+        snake.pop_back();
+        delay *= 0.8;
+        break;
+
     default:
         mvaddch(y2, x2, ' ');
         snake.pop_back();
         break;
     }
 
-    if(snake.size() < 3) dir = 'q';
+    if (snake.size() < 3)
+        dir = 'q';
 
     set_snake();
     refresh();
@@ -117,12 +130,16 @@ void Snake_entity::set_snake()
     }
 }
 
-void Snake_entity::loop_snake(int delay, Snake_map_game map)
+void Snake_entity::loop_snake(Snake_map_game map)
 {
     while (dir != 'q')
     {
-        map.Poison_create(3, 7);
-        map.Growth_create(3, 97);
+        delay *= 0.99;
+        delay -= 30;
+        map.Poison_create(5, 7);
+        map.Growth_create(4, 93);
+        map.Fast_create(3, 31);
+        map.Slow_create(3, 61);
         move_snake();
         usleep(delay);
     }

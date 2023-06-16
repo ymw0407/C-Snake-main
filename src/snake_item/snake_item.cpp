@@ -22,7 +22,7 @@ void item::create_item(int starty, int startx, int height, int width, int r, int
     int tmp_x = (int)((rand() % (width - 2)) / 2) * 2 + startx + 2;
     int tmp_y = (rand() % (height - 1)) + starty + 1;
 
-    if (mvinch(tmp_y, tmp_x) == ' ' && (rand() % percentage) != 0)
+    if (mvinch(tmp_y, tmp_x) == ' ' && (rand() % (int)(percentage * 0.8)) != 0)
     {
         mvaddch(tmp_y, tmp_x, item_char);
         refresh();

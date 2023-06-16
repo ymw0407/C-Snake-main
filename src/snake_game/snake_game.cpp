@@ -30,6 +30,6 @@ Snake_map_game SnakeGame::selectMap(std::vector<std::string> stage)
 void SnakeGame::gameStart(Snake_map_game map, int tick)
 {
     nodelay(stdscr, true);
-    Snake_entity snake = Snake_entity();
-    snake.loop_snake(tick, map);
+    Snake_entity snake = Snake_entity(tick);
+    snake.loop_snake(map);
 }
