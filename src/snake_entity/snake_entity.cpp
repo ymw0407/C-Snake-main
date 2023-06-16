@@ -66,6 +66,10 @@ void Snake_entity::move_snake()
     else if (dir == 'd')
         snake.insert(snake.begin(), map_position(y + 1, x));
 
+    if(snake_collision() == '1'){
+        dir = 'q';
+    }
+
     set_snake();
     refresh();
 }
@@ -95,4 +99,12 @@ void Snake_entity::loop_snake()
         move_snake();
         usleep(100000);
     }
+}
+
+char Snake_entity::snake_collision(){
+    int x = snake[0].get_position().second;
+    int y = snake[0].get_position().first;
+    char head = mvinch(y, x);
+
+    return head;
 }

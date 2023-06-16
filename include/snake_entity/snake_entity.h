@@ -18,6 +18,7 @@ private:
     std::vector<map_position> snake;
     char dir = 'l';
     void set_snake();
+    char snake_collision();
 public:
     Snake_entity();
     void move_snake();

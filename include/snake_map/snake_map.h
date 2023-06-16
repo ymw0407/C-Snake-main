@@ -6,8 +6,7 @@
 class Snake_map
 {
 protected:
-    int startx, starty, width, height;
-    const char** map;
+    int startx, starty;
 };
 
 #endif
