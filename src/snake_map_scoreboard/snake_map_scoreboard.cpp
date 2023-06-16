@@ -31,6 +31,14 @@ void Snake_map_score::Snake_score_reload(int l, int msp, int sp, int p, int m, i
     mvprintw(starty + minus.second, startx + minus.first, "%s", std::to_string(m).c_str());
     mvprintw(starty + fast.second, startx + fast.first, "%s", std::to_string(f).c_str());
     mvprintw(starty + slow.second, startx + slow.first, "%s", std::to_string(s).c_str());
+
+    if (l >= 10)
+        mvprintw(starty + m_length.second, startx + m_length.first, "V");
+    if (msp <= 100000)
+        mvprintw(starty + m_maxSpeed.second, startx + m_maxSpeed.first, "V");
+    if (p >= 5)
+        mvprintw(starty + m_plus.second, startx + m_plus.first, "V");
+    if (m >= 2)
+        mvprintw(starty + m_minus.second, startx + m_minus.first, "V");
     refresh();
-    // mvprintw(length.second, length.first, std::to_stirng(snake.l).c_str());
 }

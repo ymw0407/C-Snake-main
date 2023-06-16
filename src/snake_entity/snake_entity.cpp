@@ -151,11 +151,11 @@ void Snake_entity::loop_snake(Snake_map_game map, Snake_map_score score)
     {
         delay *= 0.99;
         delay -= 30;
+        move_snake();
         map.Poison_create(5, 7);
         map.Growth_create(4, 93);
         map.Fast_create(3, 31);
         map.Slow_create(3, 61);
-        move_snake();
 
         sp = delay;
         msp = std::min(delay, msp);

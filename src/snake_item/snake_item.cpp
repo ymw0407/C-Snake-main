@@ -13,6 +13,7 @@ protected:
 
 public:
     void create_item(int starty, int startx, int height, int width, int r, int percentage = 3, char item_char = '@');
+    
 };
 
 void item::create_item(int starty, int startx, int height, int width, int r, int percentage, char item_char)
