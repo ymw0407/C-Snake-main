@@ -22,7 +22,7 @@ private:
 public:
     Snake_entity();
     void move_snake();
-    void loop_snake();
+    void loop_snake(int delay);
 };
 
 #endif

@@ -14,7 +14,6 @@ protected:
 
 public:
     Snake_map_game(int srartx, int starty);
-    ~Snake_map_game();
     void Snake_stage_init(std::vector<std::string> stage);
 };
 

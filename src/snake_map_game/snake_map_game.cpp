@@ -8,13 +8,8 @@ Snake_map_game::Snake_map_game(int startx, int starty) : startx(startx), starty(
     printw("Snake Game by MinWoo, SinJi, DongHyeon");
 }
 
-Snake_map_game::~Snake_map_game()
-{
-    endwin();
-}
-
 void Snake_map_game::Snake_stage_init(std::vector<std::string> stage)
-{ 
+{
     stage_height = stage.size();
     stage_width = stage[0].length();
 

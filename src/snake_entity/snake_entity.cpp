@@ -2,6 +2,7 @@
 #include <ncurses.h>
 #include <vector>
 #include <unistd.h>
+#include <string>
 
 map_position::map_position(int x, int y) : x(x), y(y) {}
 
@@ -66,7 +67,8 @@ void Snake_entity::move_snake()
     else if (dir == 'd')
         snake.insert(snake.begin(), map_position(y + 1, x));
 
-    if(snake_collision() == '1'){
+    if (snake_collision() == '1')
+    {
         dir = 'q';
     }
 
@@ -92,16 +94,17 @@ void Snake_entity::set_snake()
     }
 }
 
-void Snake_entity::loop_snake()
+void Snake_entity::loop_snake(int delay)
 {
     while (dir != 'q')
     {
         move_snake();
-        usleep(100000);
+        usleep(delay);
     }
 }
 
-char Snake_entity::snake_collision(){
+char Snake_entity::snake_collision()
+{
     int x = snake[0].get_position().second;
     int y = snake[0].get_position().first;
     char head = mvinch(y, x);
