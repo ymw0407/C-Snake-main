@@ -67,9 +67,35 @@ void Snake_entity::move_snake()
     else if (dir == 'd')
         snake.insert(snake.begin(), map_position(y + 1, x));
 
-    if (snake_collision() == '1')
+    int x2 = snake.back().get_position().second;
+    int y2 = snake.back().get_position().first;
+
+    switch (snake_collision())
     {
+    case '1':
         dir = 'q';
+        break;
+
+    case 'B':
+        dir = 'q';
+        break;
+    
+    case '$':
+        break;
+    
+    case '@':
+        mvaddch(y2, x2, ' ');
+        snake.pop_back();
+        x2 = snake.back().get_position().second;
+        y2 = snake.back().get_position().first;
+        snake.pop_back();
+        mvaddch(y2, x2, ' ');
+        break;
+    
+    default:
+        mvaddch(y2, x2, ' ');
+        snake.pop_back();
+        break;
     }
 
     set_snake();
@@ -86,11 +112,6 @@ void Snake_entity::set_snake()
         x = snake[i].get_position().second;
         y = snake[i].get_position().first;
         mvaddch(y, x, 'B');
-        if (i == snake.size() - 1)
-        {
-            mvaddch(y, x, ' ');
-            snake.pop_back();
-        }
     }
 }
 
