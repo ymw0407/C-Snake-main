@@ -98,6 +98,8 @@ void Snake_entity::move_snake()
         break;
     }
 
+    if(snake.size() < 3) dir = 'q';
+
     set_snake();
     refresh();
 }
@@ -119,8 +121,8 @@ void Snake_entity::loop_snake(int delay, Snake_map_game map)
 {
     while (dir != 'q')
     {
-        map.Poison_create(5);
-        map.Growth_create(7);
+        map.Poison_create(3, 7);
+        map.Growth_create(3, 97);
         move_snake();
         usleep(delay);
     }

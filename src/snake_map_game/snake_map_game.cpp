@@ -25,14 +25,14 @@ void Snake_map_game::Snake_stage_init(std::vector<std::string> stage)
     refresh();
 }
 
-void Snake_map_game::Poison_create(int percentage)
+void Snake_map_game::Poison_create(int percentage, int r)
 {
     Poison poison = Poison(percentage);
-    poison.create_item(starty, startx, stage_height, stage_width, percentage, '@');
+    poison.create_item(starty, startx, stage_height, stage_width, r, percentage, '@');
 }
 
-void Snake_map_game::Growth_create(int percentage)
+void Snake_map_game::Growth_create(int percentage, int r)
 {
     Growth growth = Growth(percentage);
-    growth.create_item(starty, startx, stage_height, stage_width, percentage, '$');
+    growth.create_item(starty, startx, stage_height, stage_width, r, percentage, '$');
 }
