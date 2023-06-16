@@ -31,24 +31,32 @@ void Snake_entity::move_snake()
         if (dir != 'r')
         {
             dir = 'l';
+        } else {
+            dir = 'q';
         }
         break;
     case KEY_RIGHT:
         if (dir != 'l')
         {
             dir = 'r';
+        } else {
+            dir = 'q';
         }
         break;
     case KEY_UP:
         if (dir != 'd')
         {
             dir = 'u';
+        } else {
+            dir = 'q';
         }
         break;
     case KEY_DOWN:
         if (dir != 'u')
         {
             dir = 'd';
+        } else {
+            dir = 'q';
         }
         break;
     case KEY_F(1):
