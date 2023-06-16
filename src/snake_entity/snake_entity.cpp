@@ -98,7 +98,8 @@ void Snake_entity::loop_snake(int delay, Snake_map_game map)
 {
     while (dir != 'q')
     {
-        map.Poison_create(2);
+        map.Poison_create(5);
+        map.Growth_create(7);
         move_snake();
         usleep(delay);
     }
