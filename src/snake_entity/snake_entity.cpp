@@ -81,6 +81,7 @@ void Snake_entity::move_snake()
         break;
 
     case 'G': // growth
+        p++;
         break;
 
     case '@': // poison
@@ -90,18 +91,21 @@ void Snake_entity::move_snake()
         y2 = snake.back().get_position().first;
         snake.pop_back();
         mvaddch(y2, x2, ' ');
+        m++;
         break;
 
     case 'S': // slow
         mvaddch(y2, x2, ' ');
         snake.pop_back();
         delay *= 1.5;
+        s++;
         break;
 
     case 'F': // fast
         mvaddch(y2, x2, ' ');
         snake.pop_back();
         delay *= 0.8;
+        f++;
         break;
 
     default:
@@ -122,7 +126,8 @@ void Snake_entity::set_snake()
     int x = snake[0].get_position().second;
     int y = snake[0].get_position().first;
     mvaddch(y, x, 'H');
-    for (int i = 1; i < snake.size(); i++)
+    l = snake.size();
+    for (int i = 1; i < l; i++)
     {
         x = snake[i].get_position().second;
         y = snake[i].get_position().first;
@@ -141,6 +146,9 @@ void Snake_entity::loop_snake(Snake_map_game map)
         map.Fast_create(3, 31);
         map.Slow_create(3, 61);
         move_snake();
+        
+        sp = delay;
+        msp = std::min(delay, msp);
         usleep(delay);
     }
 }
