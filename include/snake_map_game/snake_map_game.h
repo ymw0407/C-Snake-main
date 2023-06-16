@@ -8,11 +8,12 @@
 class Snake_map_game : protected Snake_map
 {
 protected:
-    int startx = 3, starty = 1, width = 65, height = 35;
-    const char** map;
+    int startx, starty;
+    int stage_height, stage_width;
+    std::vector<std::string> stage;
 
 public:
-    Snake_map_game();
+    Snake_map_game(int srartx, int starty);
     ~Snake_map_game();
     void Snake_stage_init(std::vector<std::string> stage);
 };

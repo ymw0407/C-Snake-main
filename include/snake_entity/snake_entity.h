@@ -17,10 +17,10 @@ class Snake_entity
 private:
     std::vector<map_position> snake;
     char dir = 'l';
+    void set_snake();
 public:
     Snake_entity();
     void move_snake();
-    void set_snake();
     void loop_snake();
 };
 
