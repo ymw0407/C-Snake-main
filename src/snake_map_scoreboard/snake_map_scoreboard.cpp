@@ -24,7 +24,7 @@ void Snake_map_score::Snake_score_init(std::vector<std::string> scoreboard)
 
 bool Snake_map_score::Snake_score_reload(int l, int msp, int sp, int p, int m, int f, int s)
 {
-    mvprintw(starty + length.second, startx + length.first, "%s", std::to_string(l).c_str());
+    mvprintw(starty + length.second, startx + length.first, "%s ", std::to_string(l).c_str());
     mvprintw(starty + maxSpeed.second, startx + maxSpeed.first, "%s", std::to_string(msp).c_str());
     mvprintw(starty + speed.second, startx + speed.first, "%s", std::to_string(sp).c_str());
     mvprintw(starty + plus.second, startx + plus.first, "%s", std::to_string(p).c_str());
