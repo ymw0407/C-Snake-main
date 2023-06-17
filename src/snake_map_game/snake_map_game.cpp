@@ -32,7 +32,7 @@ void Snake_map_game::Poison_create(int percentage, int r)
     Poison poison = Poison(percentage);
     if (poison.cnt < 3)
     {
-        poison.create_item(starty, startx, stage_height, stage_width, r, percentage, '@');
+        poison.create_item(poison, starty, startx, stage_height, stage_width, r, percentage, '@');
     }
 }
 
@@ -41,7 +41,7 @@ void Snake_map_game::Growth_create(int percentage, int r)
     Growth growth = Growth(percentage);
     if (growth.cnt < 3)
     {
-        growth.create_item(starty, startx, stage_height, stage_width, r, percentage, 'G');
+        growth.create_item(growth, starty, startx, stage_height, stage_width, r, percentage, 'G');
     }
 }
 
@@ -50,7 +50,7 @@ void Snake_map_game::Slow_create(int percentage, int r)
     Slow slow = Slow(percentage);
     if (slow.cnt < 3)
     {
-        slow.create_item(starty, startx, stage_height, stage_width, r, percentage, 'S');
+        slow.create_item(slow, starty, startx, stage_height, stage_width, r, percentage, 'S');
     }
 }
 
@@ -58,7 +58,7 @@ void Snake_map_game::Fast_create(int percentage, int r)
 {
     Fast fast = Fast(percentage);
     if (fast.cnt < 3)
-    {
-        fast.create_item(starty, startx, stage_height, stage_width, r, percentage, 'F');
+    { 
+        fast.create_item(fast, starty, startx, stage_height, stage_width, r, percentage, 'F');
     }
 }
