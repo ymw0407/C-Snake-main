@@ -30,23 +30,35 @@ void Snake_map_game::Snake_stage_init(std::vector<std::string> stage)
 void Snake_map_game::Poison_create(int percentage, int r)
 {
     Poison poison = Poison(percentage);
-    poison.create_item(starty, startx, stage_height, stage_width, r, percentage, '@');
+    if (poison.cnt < 3)
+    {
+        poison.create_item(starty, startx, stage_height, stage_width, r, percentage, '@');
+    }
 }
 
 void Snake_map_game::Growth_create(int percentage, int r)
 {
     Growth growth = Growth(percentage);
-    growth.create_item(starty, startx, stage_height, stage_width, r, percentage, 'G');
+    if (growth.cnt < 3)
+    {
+        growth.create_item(starty, startx, stage_height, stage_width, r, percentage, 'G');
+    }
 }
 
 void Snake_map_game::Slow_create(int percentage, int r)
 {
     Slow slow = Slow(percentage);
-    slow.create_item(starty, startx, stage_height, stage_width, r, percentage, 'S');
+    if (slow.cnt < 3)
+    {
+        slow.create_item(starty, startx, stage_height, stage_width, r, percentage, 'S');
+    }
 }
 
 void Snake_map_game::Fast_create(int percentage, int r)
 {
     Fast fast = Fast(percentage);
-    fast.create_item(starty, startx, stage_height, stage_width, r, percentage, 'F');
+    if (fast.cnt < 3)
+    {
+        fast.create_item(starty, startx, stage_height, stage_width, r, percentage, 'F');
+    }
 }

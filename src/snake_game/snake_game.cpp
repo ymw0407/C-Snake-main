@@ -4,6 +4,10 @@
 #include "../snake_map_game/snake_map_game.cpp"
 #include "../snake_map_scoreboard/snake_map_scoreboard.cpp"
 #include "../snake_entity/snake_entity.cpp"
+#include "../../map/stage1.h"
+#include "../../map/stage2.h"
+#include "../../map/stage3.h"
+#include "../../map/stage4.h"
 
 SnakeGame::SnakeGame()
 {
@@ -41,4 +45,7 @@ void SnakeGame::gameStart(Snake_map_game map, Snake_map_score score, int tick)
     nodelay(stdscr, true);
     Snake_entity snake = Snake_entity(tick);
     snake.loop_snake(map, score);
+    Snake_map_game map2 = selectMap(stage3);
+    Snake_map_score score2 = initScore(scoreBoard);
+    snake.loop_snake(map2, score2);
 }

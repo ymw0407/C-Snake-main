@@ -1,6 +1,6 @@
 #include "./snake_game/snake_game.cpp"
-#include "../map/stage1.h"
-#include "../map/stage2.h"
+// #include "../map/stage1.h"
+// #include "../map/stage2.h"
 #include "../UI/scoreboard.h"
 #include <ncurses.h>
 

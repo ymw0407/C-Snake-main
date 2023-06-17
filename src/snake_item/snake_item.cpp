@@ -13,8 +13,10 @@ protected:
 
 public:
     void create_item(int starty, int startx, int height, int width, int r, int percentage = 3, char item_char = '@');
-    
+    static int cnt;
 };
+
+int item::cnt = 0;
 
 void item::create_item(int starty, int startx, int height, int width, int r, int percentage, char item_char)
 {
@@ -25,6 +27,7 @@ void item::create_item(int starty, int startx, int height, int width, int r, int
 
     if (mvinch(tmp_y, tmp_x) == ' ' && (rand() % (int)(percentage * 0.8)) != 0)
     {
+        cnt++;
         mvaddch(tmp_y, tmp_x, item_char);
         refresh();
     }
