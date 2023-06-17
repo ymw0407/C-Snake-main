@@ -3,20 +3,29 @@
 #include <cstdlib>
 #include <ctime>
 #include <ncurses.h>
+#include <vector>
 
 class Fast : public item
 {
 protected:
     char item_char;
     int percentage;
+    int ttl;
+    int x, y;
 
 public:
-    Fast(int percentage = 10, char item_char = 'F') : item_char(item_char), percentage(percentage){};
+    Fast(int percentage = 10, char item_char = 'F') : item_char(item_char), percentage(percentage)
+    {
+        ttl = 6;
+    };
     void create_item(int starty, int startx, int height, int width, int r, int percentage = 3, char item_char = '@');
     static int cnt;
+    static std::vector<Fast> check;
+    static void tick_check();
 };
 
 int Fast::cnt = 0;
+std::vector<Fast> Fast::check;
 
 void Fast::create_item(int starty, int startx, int height, int width, int r, int percentage, char item_char)
 {
@@ -30,5 +39,16 @@ void Fast::create_item(int starty, int startx, int height, int width, int r, int
         cnt++;
         mvaddch(tmp_y, tmp_x, item_char);
         refresh();
+    }
+}
+
+void Fast::tick_check()
+{
+    for (int i = 0; i < check.size(); i++)
+    {
+        check[i].ttl--;
+        if(check[i].ttl == 0){
+            
+        }
     }
 }

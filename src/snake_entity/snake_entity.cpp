@@ -99,7 +99,7 @@ void Snake_entity::move_snake()
         {
             p++;
         }
-
+        Growth::cnt--;
         break;
 
     case '@': // poison
@@ -110,6 +110,7 @@ void Snake_entity::move_snake()
         snake.pop_back();
         mvaddch(y2, x2, ' ');
         m++;
+        Poison::cnt--;
         break;
 
     case 'S': // slow
@@ -117,6 +118,7 @@ void Snake_entity::move_snake()
         snake.pop_back();
         delay *= 1.5;
         s++;
+        Slow::cnt--;
         break;
 
     case 'F': // fast
@@ -124,6 +126,7 @@ void Snake_entity::move_snake()
         snake.pop_back();
         delay *= 0.8;
         f++;
+        Fast::cnt--;
         break;
 
     default:
