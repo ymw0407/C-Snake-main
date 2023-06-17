@@ -37,7 +37,7 @@ void Poison::create_item(Poison poison, int starty, int startx, int height, int 
         mvaddch(tmp_y, tmp_x, item_char);
         poison.x = tmp_x;
         poison.y = tmp_y;
-        poison.ttl = 40;
+        poison.ttl = 60;
         check.push_back(poison);
         refresh();
     }

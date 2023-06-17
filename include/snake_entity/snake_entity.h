@@ -27,8 +27,9 @@ private:
 
 public:
     Snake_entity(int delay);
+    ~Snake_entity();
     void move_snake();
-    void loop_snake(Snake_map_game map, Snake_map_score score);
+    int loop_snake(Snake_map_game map, Snake_map_score score);
     int l = 3, msp = INT_MAX, sp, p = 0, m = 0, f = 0, s = 0;
 };
 

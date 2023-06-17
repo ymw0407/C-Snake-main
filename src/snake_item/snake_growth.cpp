@@ -37,7 +37,7 @@ void Growth::create_item(Growth growth, int starty, int startx, int height, int 
         mvaddch(tmp_y, tmp_x, item_char);
         growth.x = tmp_x;
         growth.y = tmp_y;
-        growth.ttl = 40;
+        growth.ttl = 60;
         check.push_back(growth);
         refresh();
     }

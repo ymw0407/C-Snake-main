@@ -22,7 +22,7 @@ void Snake_map_score::Snake_score_init(std::vector<std::string> scoreboard)
     refresh();
 }
 
-void Snake_map_score::Snake_score_reload(int l, int msp, int sp, int p, int m, int f, int s)
+bool Snake_map_score::Snake_score_reload(int l, int msp, int sp, int p, int m, int f, int s)
 {
     mvprintw(starty + length.second, startx + length.first, "%s", std::to_string(l).c_str());
     mvprintw(starty + maxSpeed.second, startx + maxSpeed.first, "%s", std::to_string(msp).c_str());
@@ -34,6 +34,8 @@ void Snake_map_score::Snake_score_reload(int l, int msp, int sp, int p, int m, i
 
     if (l >= 10)
         mvprintw(starty + m_length.second, startx + m_length.first, "V");
+    else
+        mvprintw(starty + m_length.second, startx + m_length.first, " ");
     if (msp <= 100000)
         mvprintw(starty + m_maxSpeed.second, startx + m_maxSpeed.first, "V");
     if (p >= 5)
@@ -41,4 +43,10 @@ void Snake_map_score::Snake_score_reload(int l, int msp, int sp, int p, int m, i
     if (m >= 2)
         mvprintw(starty + m_minus.second, startx + m_minus.first, "V");
     refresh();
+
+    if(l >= 10 && msp <= 100000 && p >= 5 && m >= 2){
+        return true;
+    } else {
+        return false;
+    }
 }

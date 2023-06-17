@@ -37,7 +37,7 @@ void Fast::create_item(Fast fast, int starty, int startx, int height, int width,
         mvaddch(tmp_y, tmp_x, item_char);
         fast.x = tmp_x;
         fast.y = tmp_y;
-        fast.ttl = 40;
+        fast.ttl = 60;
         check.push_back(fast);
         refresh();
     }

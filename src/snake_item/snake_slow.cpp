@@ -37,7 +37,7 @@ void Slow::create_item(Slow slow, int starty, int startx, int height, int width,
         mvaddch(tmp_y, tmp_x, item_char);
         slow.x = tmp_x;
         slow.y = tmp_y;
-        slow.ttl = 40;
+        slow.ttl = 60;
         check.push_back(slow);
         refresh();
     }

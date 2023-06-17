@@ -22,6 +22,14 @@ Snake_entity::Snake_entity(int delay) : delay(delay)
     refresh();
 }
 
+Snake_entity::~Snake_entity()
+{
+    Growth::cnt = 0;
+    Fast::cnt = 0;
+    Poison::cnt = 0;
+    Slow::cnt = 0;
+}
+
 void Snake_entity::move_snake()
 {
     int KEY = getch();
@@ -156,7 +164,7 @@ void Snake_entity::set_snake()
     }
 }
 
-void Snake_entity::loop_snake(Snake_map_game map, Snake_map_score score)
+int Snake_entity::loop_snake(Snake_map_game map, Snake_map_score score)
 {
     while (dir != 'q')
     {
@@ -174,9 +182,13 @@ void Snake_entity::loop_snake(Snake_map_game map, Snake_map_score score)
         Poison::tick_check();
         sp = delay;
         msp = std::min(delay, msp);
-        score.Snake_score_reload(l, msp, sp, p, m, f, s);
+        bool mission = score.Snake_score_reload(l, msp, sp, p, m, f, s);
         usleep(delay);
+        if(mission){
+            return 1;
+        }
     }
+    return -1;
 }
 
 char Snake_entity::snake_collision()

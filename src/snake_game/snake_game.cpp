@@ -40,12 +40,10 @@ Snake_map_score SnakeGame::initScore(std::vector<std::string> scoreboard)
     return snake_score;
 }
 
-void SnakeGame::gameStart(Snake_map_game map, Snake_map_score score, int tick)
+int SnakeGame::gameStart(Snake_map_game map, Snake_map_score score, int tick)
 {
     nodelay(stdscr, true);
     Snake_entity snake = Snake_entity(tick);
-    snake.loop_snake(map, score);
-    Snake_map_game map2 = selectMap(stage3);
-    Snake_map_score score2 = initScore(scoreBoard);
-    snake.loop_snake(map2, score2);
+    int result = snake.loop_snake(map, score);
+    return result; // 1 -> 성공 // -1 -> 실패 
 }
